@@ -1,0 +1,9 @@
+Changes
+Makefile.PL
+MANIFEST
+ppport.h
+README
+typemap
+Ztxt.pm
+Ztxt.xs
+t/1.t
