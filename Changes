@@ -1,4 +1,7 @@
-Revision history for Perl extension Palm::Ztxt.
+0.36 Mon Nov 24 04:00:00 UTC 2003
+	- Clean up remaing Ztxt_XS refrences from tests and XS files.
+	  Everthing tested fine, unless you tried to compile and make test
+	  on a system that never had Ztxt_XS installed
 
 0.35 Fri Sep 19 23:41:48 UTC 2003
 	- Implement Basic library functions. And simple interface

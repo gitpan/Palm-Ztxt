@@ -25,7 +25,8 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.35';
+our $VERSION = sprintf "%s.%s%s", q$Name: Rel-0_36 $ =~ /^Name: Rel-(\d+)_(\d+)(_\d+|)\s*$/, 9999,999,999;
+
 
 require XSLoader;
 XSLoader::load('Palm::Ztxt', $VERSION);

@@ -11,12 +11,12 @@ use Test::More tests => 25;
 use Devel::Peek;
 use Data::Dumper;
 no warnings;
-BEGIN { use_ok('Palm::Ztxt_XS') };
+BEGIN { use_ok('Palm::Ztxt') };
 
 #########################
 
 my $ztxt;
-ok($ztxt = new Palm::Ztxt_XS, "new");
+ok($ztxt = new Palm::Ztxt, "new");
 ok(($ztxt->set_title("Foo") || 1), "set_title()");
 ok(($ztxt->get_title() eq "Foo"), "get_title()");
 ok(($ztxt->set_data("This is my book of Foo") || 1), "set_data()");
@@ -30,9 +30,9 @@ print FH $output;
 close FH;
 my $ztxt1;
 #for (1..10_000_000) {
-#my $foo = new Palm::Ztxt_XS;
+#my $foo = new Palm::Ztxt;
 #}
-ok($ztxt1 = new Palm::Ztxt_XS, "Init again");
+ok($ztxt1 = new Palm::Ztxt, "Init again");
 ok($ztxt1->disect($output) ||1, "disect");
 ok(($ztxt1->get_title() eq "Foo"), "get_title");
 ok(($ztxt1->get_input() eq "This is my book of Foo"), "get_input");
@@ -61,7 +61,7 @@ ok($annotations->[0]{offset} == 4, 'annotatin 1 offset' );
 #print Data::Dumper::Dumper($ztxt1->get_annotations());
 
 
-my $hi_there = new Palm::Ztxt_XS;
+my $hi_there = new Palm::Ztxt;
 $hi_there->process(0,0);
 $hi_there->generate();
 my $output2 = $hi_there->get_output();

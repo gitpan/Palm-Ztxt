@@ -31,7 +31,7 @@ new(class_name)
 		RETVAL
 
 
-MODULE = Palm::ZtxtS		PACKAGE = PztxtPtr
+MODULE = Palm::Ztxt		PACKAGE = PztxtPtr
 
 void
 set_title(db, title)
