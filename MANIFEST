@@ -1,9 +1,14 @@
 Changes
 Makefile.PL
 MANIFEST
+META.yml			Module meta-data (added by MakeMaker)
 ppport.h
 README
-typemap
+t/01use.t
+t/02Create.t
+t/12.t
+t/14Abuse.t
+t/50Leak.t
+TODO
 Ztxt.pm
 Ztxt.xs
-t/1.t

@@ -1,3 +1,13 @@
+0.90: Thu Apr 15 01:12:13 UTC 2004
+	- rewrote most of the XS.
+	- Added  tests, yet still needs more.
+	- Wrote some documentation.
+	- Pretty close to finalizing the API.
+	- Rebranded as beta instead of alpha
+	- Bumped number from .3x to .9x to signify move from alpha to beta.
+	- Removed zlib api functions that should not be accessable form perl
+	  eg. process()/generate() [non-backwards compatible change]
+	  
 0.36 Mon Nov 24 04:00:00 UTC 2003
 	- Clean up remaing Ztxt_XS refrences from tests and XS files.
 	  Everthing tested fine, unless you tried to compile and make test

@@ -21,17 +21,15 @@ ok(($ztxt->set_title("Foo") || 1), "set_title()");
 ok(($ztxt->get_title() eq "Foo"), "get_title()");
 ok(($ztxt->set_data("This is my book of Foo") || 1), "set_data()");
 ok(($ztxt->get_input() eq "This is my book of Foo"), "get_input()");
-ok(($ztxt->process(0,0) || 1), "process");
-ok(($ztxt->generate() ||1), "generate");
+ok(($ztxt->set_data(\"This is my book of Foo") || 1), "set_data(\data) ");
+ok(($ztxt->get_input() eq "This is my book of Foo"), "get_input() ref to data");
 my  $output;
+$ztxt->{method} = 0;
 ok($output = $ztxt->get_output(), "get_output");
 open FH, ">", "TestOutput" or die $!;
 print FH $output;
 close FH;
 my $ztxt1;
-#for (1..10_000_000) {
-#my $foo = new Palm::Ztxt;
-#}
 ok($ztxt1 = new Palm::Ztxt, "Init again");
 ok($ztxt1->disect($output) ||1, "disect");
 ok(($ztxt1->get_title() eq "Foo"), "get_title");
@@ -62,8 +60,6 @@ ok($annotations->[0]{offset} == 4, 'annotatin 1 offset' );
 
 
 my $hi_there = new Palm::Ztxt;
-$hi_there->process(0,0);
-$hi_there->generate();
 my $output2 = $hi_there->get_output();
 #Dump($output2);
 
