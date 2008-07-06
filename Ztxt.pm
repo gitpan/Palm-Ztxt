@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = sprintf "%s.%s%s", q$Name: Rel-0_90 $ =~ /^Name: Rel-(\d+)_(\d+)(_\d+|)\s*$/, 999,"00",join "", (gmtime)[5] +1900, map {sprintf "%02d", $_} (gmtime)[4]+1;
+our $VERSION = sprintf "%s.%s%s", q$Name: Rel-0_91 $ =~ /^Name: Rel-(\d+)_(\d+)(_\d+|)\s*$/, 999,"00",join "", (gmtime)[5] +1900, map {sprintf "%02d", $_} (gmtime)[4]+1;
 
 
 require XSLoader;
@@ -168,7 +168,7 @@ not seem to have a concept of a NULL /really, relay short book.
   $ztxt->set_data($book);
   $ztxt->set_data(\$book);
 
-=item get_data();
+=item * get_data();
 
 return the data portion of the zTXT.  The book, as it were.
 
@@ -274,7 +274,7 @@ just don't feel like testing this, and I don't plan on using delete_annotation()
 any time in the near future).
 
 
-=item set_creator()
+=item * set_creator()
 
 Change the creator of the database. The default creator, 'GPLm' should not be
 changed; however, the option is given to help help confuse programmers, 
@@ -354,6 +354,8 @@ memory that is used for compression and decompression. The default is 15 and
 there is probably no need to change this.
 
 
+=back
+
 =head1 NOT IMPLEMENTED
 
 The following functions are part of the makeztxt library; however, they are
@@ -419,9 +421,11 @@ Rudolf Lippan E<lt>rlippan@remotelinux.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003-2004 by Rudolf Lippan E<lt>rlippan@remotelinux.comE<gt>
+Copyright 2003-2008 by Rudolf Lippan E<lt>rlippan@remotelinux.comE<gt>
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself. 
+The inlcuded makeztxt library is copyright by its author. See makeztxt-1.62/COPYING and makeztxt-1.62/libztxt/* for more information.
+
+
+
 
 =cut

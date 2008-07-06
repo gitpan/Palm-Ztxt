@@ -1,3 +1,7 @@
+0.91: Sun Jul  6 19:06:20 UTC 2008
+	- include makeztxt 1.62 with distribution.
+	- fix a few pod errors
+
 0.90: Thu Apr 15 01:12:13 UTC 2004
 	- rewrote most of the XS.
 	- Added  tests, yet still needs more.

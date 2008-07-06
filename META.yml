@@ -1,11 +1,14 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Palm-Ztxt
-version:      0.90
-version_from: Ztxt.pm
-installdirs:  site
-requires:
+--- #YAML:1.0
+name:                Palm-Ztxt
+version:             0.91
+abstract:            Perl extension for creating and manipulating zTXTs using libztxt.
+license:             ~
+author:              
+    - Rudolf Lippan <rlippan@remotelinux.com>
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
     Test::More:                    0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.21
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

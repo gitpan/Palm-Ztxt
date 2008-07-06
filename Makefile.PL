@@ -5,8 +5,10 @@ use strict;
 # the contents of the Makefile that is written.
 my $ztxt_home = $ENV{ZTXT_HOME};
 $ztxt_home ||= 
-    prompt('make_ztxt home direcotry [/Install/unpacked/makeztxt-1.60]:');
-$ztxt_home ||= '/Install/unpacked/makeztxt-1.60';
+    prompt('make_ztxt home direcotry [./makeztxt-1.62]:');
+$ztxt_home ||= './makeztxt-1.62';
+
+my $use_included = ($ztxt_home eq './makeztxt-1.62');
 
 my $ztxt_lib = $ztxt_home."/libztxt";
 WriteMakefile(
@@ -16,9 +18,26 @@ WriteMakefile(
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM	=> 'Ztxt.pm', # retrieve abstract from module
        AUTHOR		=> 'Rudolf Lippan <rlippan@remotelinux.com>') : ()),
-    'LIBS'		=> ["-L$ztxt_lib -lztxt -lz"],
+    LIBS		=> ["-L$ztxt_lib -lz".(!$use_included ? ' -lztxt' : '')],
+    ($use_included ? 
+        (MYEXTLIB		=>  "$ztxt_lib/libztxt\$(LIB_EXT)") : () ),
     'DEFINE'		=> '',
     'INC'		=> "-I. -I$ztxt_home -I$ztxt_lib",
-	# Un-comment this if you add C files to link with later:
-    # 'OBJECT'		=> '$(O_FILES)', # link all the C files too
+    'clean'		=> {FILES => "TestOutput"},
 );
+
+sub MY::postamble {
+return "" if !$use_included;
+
+    return <<PA;
+
+libztxt.\$(LIB_EXT) : \$(MYEXTLIB)
+
+\$(MYEXTLIB) : $ztxt_home/Makefile
+	cd $ztxt_home && \$(MAKE) all
+
+clean :: 
+	cd $ztxt_home && \$(MAKE) distclean
+
+PA
+}
